@@ -10,5 +10,4 @@
   hosts: workers
   roles:
     - docker
-    - swarm-workers
-    
+    - swarm-worker
