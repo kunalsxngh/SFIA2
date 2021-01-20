@@ -4,18 +4,7 @@ pipeline{
         DATABASE_URI = credentials("DATABASE_URI")
     }
     stages{
-        stage("Install docker and docker compose"){
-            steps{
-                sh "bash jenkins/install_docker.sh"
-            }
-        }
-        stage('Build App and Push Images'){
-            steps{
-                sh "bash jenkins/docker_build.sh"
-            }
-        }
-    
-    stage("Configure Swarm and ansible"){
+        stage("Configure Swarm and ansible"){
         steps{
             sh "cd ansible && /home/jenkins/.local/bin/ansible-playbook -i inventory playbook.yaml"
         }
