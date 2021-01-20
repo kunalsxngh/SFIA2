@@ -2,7 +2,7 @@ version: '3.8'
 services:
   frontend:
     container_name: numberplate-frontend
-    image: ksing/frontend
+    image: kxnal/frontend
     build: ./service_1/
     ports:
     - target: 5000
@@ -12,7 +12,7 @@ services:
       DATABASE_URI: ${DATABASE_URI}
   letters:
     container_name: numberplate-letters
-    image: ksing/letters
+    image: kxnal/letters
     build: ./service_2/
     ports:
     - target: 5001
@@ -20,7 +20,7 @@ services:
       protocol: tcp
   numberplate-numbers:
     container_name: numberplate-numbers
-    image: ksing/numbers
+    image: kxnal/numbers
     build: ./service_3/
     ports:
     - target: 5002
@@ -28,7 +28,7 @@ services:
       protocol: tcp
   numberplate-generator:
     container_name: numberplate-generator
-    image: ksing/generator
+    image: kxnal/generator
     build: ./service_4/
     ports:
     - target: 5003
