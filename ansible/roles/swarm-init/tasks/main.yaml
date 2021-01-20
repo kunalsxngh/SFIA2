@@ -11,11 +11,4 @@
         state: present
       register: swarm_info
 
-    - name: add user
-      user:
-        name: ksing
-        groups: docker
-        shell: /bin/bash
-        append: true
-
     
