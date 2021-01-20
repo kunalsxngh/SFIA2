@@ -1,0 +1,13 @@
+---
+- name: initialize docker swarm
+  become: true
+  hosts: managers
+  roles:
+    - docker
+    - swarm-init
+- name: add workers to swarm
+  become: true
+  hosts: workers
+  roles:
+    - docker
+    - swarm-workers

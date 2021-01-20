@@ -1,0 +1,22 @@
+pipeline{
+    agent any
+    environment{
+        TEST_DATABASE_URI = "sqlite://data.db"
+        TEST_SECRET_KEY = "test"
+        DB_PASSWORD = credentials("DB_PASSWORD")
+    }
+    stages{
+        state('Build App and Push Images'){
+            steps{
+                sh "bash jenkins/docker_build.sh"
+            }
+        }
+    }state("Configure Swarm and ansible"){
+        steps{
+            sh "cd ansible && /home/jenkins/.local/bin/ansible-playbook -i inventory playbook.yaml"
+        }
+    }
+}
+swarm
+
+deploy stage

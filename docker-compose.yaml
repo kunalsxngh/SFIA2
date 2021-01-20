@@ -1,0 +1,36 @@
+version: '3.8'
+services:
+  frontend:
+    container_name: numberplate-frontend
+    image: ksing/frontend
+    build: ./service_1/
+    ports:
+    - target: 5000
+      published: 5000
+      protocol: tcp
+    environment:
+      DATABASE_URI: ${DATABASE_URI}
+  letters:
+    container_name: numberplate-letters
+    image: ksing/letters
+    build: ./service_2/
+    ports:
+    - target: 5001
+      published: 5001
+      protocol: tcp
+  numberplate-numbers:
+    container_name: numberplate-numbers
+    image: ksing/numbers
+    build: ./service_3/
+    ports:
+    - target: 5002
+      published: 5002
+      protocol: tcp
+  numberplate-generator:
+    container_name: numberplate-generator
+    image: ksing/generator
+    build: ./service_4/
+    ports:
+    - target: 5003
+      published: 5003
+      protocol: tcp

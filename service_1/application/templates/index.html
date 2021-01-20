@@ -1,0 +1,13 @@
+<h1>Your randomly generated numberplate is: {{ numberplate }}</h1>
+<h1>Your car color is also: {{ car_color }}</h1>
+<br>
+<h2>Refresh the website to make a new numberplate!</h2>
+
+
+<h2>Previous numberplates</h2>
+<p>
+    {% for numberplate in all_numberplates %}
+    {{ numberplate.numberplate}} had the car color {{ numberplate.car_color }}
+    <br><br>
+    {% endfor %}
+</p>

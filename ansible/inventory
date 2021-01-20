@@ -1,0 +1,18 @@
+[managers]
+swarm-master
+
+[managers:vars]
+ansible_user=jenkins
+ansible_ssh_common_args='-o StrictHostKeyChecking=no'
+ansible_ssh_private_key_file=~/.ssh/id_rsa
+ansible_python_interpreter=/usr/bin/python3
+
+[workers]
+swarm-worker1
+swarm-worker2
+
+[workers:vars]
+ansible_user=jenkins
+ansible_ssh_private_key_file=/home/jenkins/.ssh/id_rsa
+ansible_ssh_common_args='-o StrictHostKeyChecking=no'
+ansible_python_interpreter=/usr/bin/python3
