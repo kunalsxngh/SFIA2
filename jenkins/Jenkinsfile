@@ -6,17 +6,19 @@ pipeline{
         DB_PASSWORD = credentials("DB_PASSWORD")
     }
     stages{
-        state('Build App and Push Images'){
+        stage('Build App and Push Images'){
             steps{
                 sh "bash jenkins/docker_build.sh"
             }
         }
-    }state("Configure Swarm and ansible"){
+    }
+    stage("Configure Swarm and ansible"){
         steps{
             sh "cd ansible && /home/jenkins/.local/bin/ansible-playbook -i inventory playbook.yaml"
         }
     }
+    stage("Deploy application"){
+        steps{
+            sh "bash jenkins/deploy_stack.sh"
+        }
 }
-swarm
-
-deploy stage
