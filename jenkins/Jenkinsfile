@@ -4,6 +4,11 @@ pipeline{
         DATABASE_URI = credentials("DATABASE_URI")
     }
     stages{
+        stage("Install docker and docker compose"){
+            steps{
+                sh "bash jenkins/install_docker.sh"
+            }
+        }
         stage('Build App and Push Images'){
             steps{
                 sh "bash jenkins/docker_build.sh"
