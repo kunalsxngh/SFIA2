@@ -5,15 +5,16 @@ pipeline{
     }
     stages{
         stage("Push image"){
+            environment{
+                docker_credentials = credentials('docker-hub-credentials')
+            }
             steps{
-                withCredentials([usernamePassword( credentialsId: 'docker-hub-credentials', usernameVariable: 'USER', passwordVariable: 'PASSWORD')]) {
-                    def registry_url = "registry.hub.docker.com/"
-                    sh "docker login -u $USER -p $PASSWORD ${registry_url}"
-                    docker.withRegistry("http://${registry_url}", "docker-hub-credentials") {
-                        sh "bash jenkins/docker_build.sh"
-                    }
+                sh "docker login -u= "$docker_credentials.USR" -p="$docker_credentials.PSW""
+                sh "docker login"
+                sh "bash jenkins/docker_build.sh"
             }
         }
+    
         
         
         stage("Configure Swarm and ansible"){
