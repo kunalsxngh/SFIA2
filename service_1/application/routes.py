@@ -13,11 +13,11 @@ class Numberplate(db.Model):
 @app.route('/', methods=['GET', 'POST'])
 def index():
 
-    letters_response = requests.get("http://numberplate-letters:5001") #container names
-    numbers_response = requests.get("http://numberplate-numbers:5002")
+    letters_response = requests.get("http://numberplate-stack_letters:5001") #container names
+    numbers_response = requests.get("http://numberplate-stack_numberplate-numbers:5002")
 
     data = {"letters" : letters_response.text, "numbers" : numbers_response.text}
-    numberplate_response = requests.post("http://numberplate-generator:5003", json = data)
+    numberplate_response = requests.post("http://numberplate-stack_numberplate-generator:5003", json = data)
     json_response = numberplate_response.json()
 
     
