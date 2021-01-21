@@ -27,6 +27,5 @@ pipeline{
             sh "bash jenkins/deploy_stack.sh"
             }
         }
-        }
     }
 }
