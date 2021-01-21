@@ -9,8 +9,6 @@ pipeline{
                 docker_credentials = credentials('docker-hub-credentials')
             }
             steps{
-                sh "bash docker login -u= "$docker_credentials.USR" -p="$docker_credentials.PSW""
-                sh "bash docker login"
                 sh "bash jenkins/docker_build.sh"
             }
         }
