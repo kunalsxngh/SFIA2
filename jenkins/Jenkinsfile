@@ -4,6 +4,11 @@ pipeline{
         DATABASE_URI = credentials("DATABASE_URI")
     }
     stages{
+        stage("Testing"){
+            steps{
+                sh "bash jenkins/test.sh"
+            }
+        }
         stage("Push image"){
             environment{
                 docker_credentials = credentials('docker-hub-credentials')
