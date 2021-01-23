@@ -1,0 +1,20 @@
+- name: "download and install nginx using apt"
+  apt:
+    pkg:
+      - nginx
+    state: latest
+    update_cache: true
+- name: "make sure nginx service is started"
+  service:
+    name: nginx
+    state: started
+- name: "install nginx.conf file to the remote machines"
+  templat:
+    src: nginx.conf
+    dest: /etc/nginx/nginx.conf
+  register: nginx_config
+- name: "reload nginx"
+  service:
+    name: nginx
+    state: reloaded
+  when: nginx_config.changed
