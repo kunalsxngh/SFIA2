@@ -24,7 +24,7 @@ def index():
     new_number_plate = Numberplate(numberplate = json_response["numberplate"], car_color = json_response["color"])
     db.session.add(new_number_plate)
     db.session.commit()
-    all_numberplates = Numberplate.query.order_by(desc("id")).limit(5).all()
+    all_numberplates = Numberplate.query.order_by(desc("id")).limit(15).all()
 
 
     return render_template("index.html", numberplate = json_response["numberplate"], car_color = json_response["color"], all_numberplates = all_numberplates)

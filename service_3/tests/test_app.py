@@ -14,14 +14,14 @@ class TestResponse(TestBase):
    
     def test_get_numbers(self):
         with patch('random.randint') as random:
-            random.return_value = "1990"
+            random.return_value = "2006"
             response = self.client.get(url_for('get_numbers'))
-            self.assertEqual(b'90', response.data)
+            self.assertEqual(b'06', response.data)
 
             random.return_value = "2015"
             response = self.client.get(url_for('get_numbers'))
             self.assertEqual(b'15', response.data)
 
-            random.return_value = "2001"
+            random.return_value = "2029"
             response = self.client.get(url_for('get_numbers'))
-            self.assertEqual(b'01', response.data)
+            self.assertEqual(b'29', response.data)
