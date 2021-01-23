@@ -1,6 +1,7 @@
-pipeline{
+Shoupipeline{
     agent any
     environment{
+        rollback = 'false'
         DATABASE_URI = credentials("DATABASE_URI")
     }
     stages{
@@ -15,6 +16,7 @@ pipeline{
             }
             steps{
                 sh "bash jenkins/docker_build.sh"
+                sh "docker system prune -af"
             }
         }
     
