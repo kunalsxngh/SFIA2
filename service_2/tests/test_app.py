@@ -16,4 +16,4 @@ class TestResponse(TestBase):
         with patch("random.choice") as random:
             random.return_value = "A"
             response = self.client.get(url_for('get_letters'))
-            self.assertEqual(b'AAAAA', response.data)
+            self.assertEqual(b'AAAA', response.data)

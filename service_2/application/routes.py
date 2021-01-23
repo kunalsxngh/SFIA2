@@ -4,7 +4,7 @@ import random
 import string
 
 def random_letters():
-       return ''.join(random.choice(string.ascii_letters) for x in range(5))
+       return ''.join(random.choice(string.ascii_letters) for x in range(4))
 
 @app.route("/", methods=["GET"])
 def get_letters():
