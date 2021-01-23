@@ -9,7 +9,7 @@
     name: nginx
     state: started
 - name: "install nginx.conf file to the remote machines"
-  templat:
+  template:
     src: nginx.conf
     dest: /etc/nginx/nginx.conf
   register: nginx_config
