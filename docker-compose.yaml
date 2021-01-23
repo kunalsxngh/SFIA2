@@ -2,7 +2,7 @@ version: "3.8"
 services:
   frontend:
     container_name: numberplate-frontend
-    image: kxnal/frontend
+    image: kxnal/frontend:${app_version}
     build: ./service_1/
     ports:
       - target: 5000
@@ -10,27 +10,35 @@ services:
         protocol: tcp
     environment:
       DATABASE_URI: ${DATABASE_URI}
+    deploy:
+      replicas: ${replicas}
   letters:
     container_name: numberplate-letters
-    image: kxnal/letters
+    image: kxnal/letters:${app_version}
     build: ./service_2/
     ports:
       - target: 5001
         published: 5001
         protocol: tcp
+    deploy:
+      replicas: ${replicas}
   numberplate-numbers:
     container_name: numberplate-numbers
-    image: kxnal/numbers
+    image: kxnal/numbers:${app_version}
     build: ./service_3/
     ports:
       - target: 5002
         published: 5002
         protocol: tcp
+    deploy:
+      replicas: ${replicas}
   numberplate-generator:
     container_name: numberplate-generator
-    image: kxnal/generator
+    image: kxnal/generator:${app_version}
     build: ./service_4/
     ports:
       - target: 5003
         published: 5003
         protocol: tcp
+    deploy:
+      replicas: ${replicas}

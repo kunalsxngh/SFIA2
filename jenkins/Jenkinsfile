@@ -2,6 +2,9 @@ pipeline{
     agent any
     environment{
         DATABASE_URI = credentials("DATABASE_URI")
+        app_version = 'v2'
+        rollback = 'false'
+        replicas = 10
     }
     stages{
         stage("Testing"){
