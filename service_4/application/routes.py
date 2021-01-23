@@ -11,7 +11,7 @@ def get_numberplate():
     years = int(data["numbers"])
     color = "yellow"
     if (years % 3 == 0):
-        color = "red"
+        color = "blue"
     if ('G' in letters):
         years += randrange(10)
 
@@ -20,6 +20,6 @@ def get_numberplate():
     else:
         year = str(years)
     
-    numberplate = letters[:2] + year + letters[2:]
+    numberplate = letters[:3] + year + letters[3:]
     car_information = {"numberplate" : numberplate, "color" : color}
     return Response(json.dumps(car_information))
