@@ -20,6 +20,6 @@ def get_numberplate():
     else:
         year = str(years)
     
-    numberplate = letters[:3] + year + letters[3:]
+    numberplate = letters[:2] + year + letters[2:]
     car_information = {"numberplate" : numberplate, "color" : color}
     return Response(json.dumps(car_information))
