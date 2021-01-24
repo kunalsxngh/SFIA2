@@ -20,3 +20,35 @@ This section will explore the varies methods used to plan the development of thi
 ## Planning
 
 Before any development commenced, a Kanban board was created on Trello. The board holds information on what's currently in development, who is working on it and where something is in the process. It also stores project resources, User stories and Minimum viable product (MVP) requirements.
+
+![TrelloBoard](images/TrelloBoard.png)
+
+## Database
+
+As this program only makes use of one table, an entity-relation diagram cannot be created, and so an entity diagram below is shown instead.
+
+![EntityDiagram](images/EntityDiagram.png)
+
+The table has three attributes:
+- id : Uniquely represents each entity and is the primary key of the table
+- Numberplate : Stores the numberplate of the car
+- Color : Stores the color of the car 
+
+## Risk Assessment
+
+A risk assessment was also carried out as a tool for identifying and preventing potential project risks. However, unanticipated risks are expected as in any project, and so risks as added while the program is in development. The two images below show the risks before and after development:
+
+Before development:
+
+![FirstRA](images/FirstRA.png)
+
+After development:
+
+![SecondRA](images/SecondRA.png)
+
+
+## Test plans
+
+Test plans were also designed to ensure all aspects of the program were tested. The table below explains how each service is expected to be tested.
+
+![TestPlan](images/TestPlan.png)
