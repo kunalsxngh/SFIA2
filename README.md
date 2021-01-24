@@ -9,6 +9,9 @@ The complexity of the program itself is rather simple, since an emphasis was pla
  - Load balancing via **NGINX**, allowing for the use of an reverse proxy
  - Automated testing and deployment via **Jenkins**, executed by GitHub **Webhooks**
 
+## Numberplate generator
+To explain in brief terms, this project will create a web application that generates a numberplate on each refresh, while also showing the colour of the car that is determined by a set of predefined rules.
+
 # Contents
 
 To be added at the end
@@ -82,3 +85,22 @@ As this project is containerised, it benefits from the ability to be moved and s
 Docker Swarm automates the maintenance this project by replacing failed containers automatically, and managing rollout of updates. Docker Swarm uses all the virtual machines in this project and forms one system that users can access. This can be shown below in the diagram:
 
 ![swarm](images/swarm.png)
+
+## NginX
+
+As shown above, NginX was implemented as not only as a load balancer, but also as a reverse proxy. Users are able to visit one URL, and they are shown the application. But behind the scenes, NginX sends the user's request to the container with the least load, providing an addtional layer of security and anonymity.
+
+## Ansible
+Instead of having to go into each individual Virtual machine and setting up the build environment, such as installing docker or initializing the swarm and adding each node, Ansible playbooks could be used instead, which help incorporate infrastructure automation and reduce human error.
+
+Ansible works by excuting the commands in the playbook over SSH, so all that needs to be configured are SSH keys on all nodes.
+
+# Service configuration
+
+As mentioned before, this project relies on 4 services that work with each other to produce the output needed. This system is outlined in the diagram below. Service 1, which is the front-end aspect of the application, creates the html page for the users to see, while displaying the numberplate and car colour generated for the User. It also shows the previous 5 numberplates generated, which are fetched from the SQL Database.
+
+For service 1 to display a new numberplate, it needs service 2 to randomly generate 5 letters, and service 3 to generate a random year. These two randomly generated objects are then sent to service 4 by service 1, which then generates the numberplate, as well as the car color, and sends it back to service 1. This diagram below outlines this procedure:
+
+![Services](images/services.png)
+
+# Test Results
