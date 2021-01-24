@@ -1,4 +1,2 @@
-# SFIA2
-
-
-hello
+# Numberplate Generator
+As part of my training to become a DevOps engineer at QA, I was asked to create an application that generates "Objects" upon a set of predefined rules. This application must be based on a
