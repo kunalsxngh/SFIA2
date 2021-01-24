@@ -52,3 +52,22 @@ After development:
 Test plans were also designed to ensure all aspects of the program were tested. The table below explains how each service is expected to be tested.
 
 ![TestPlan](images/TestPlan.png)
+
+# Continuous Deployment and Integration
+
+A CI-CD pipeline was implemented in this project to allow for the automation of development in to live builds. The diagram below explains the pipeline very well:
+
+![CI-CD Pipeline](images/CI-CD.png)
+
+
+To implement this pipeline in to the project, a Jenkins pipeline was set up:
+
+![Jenkins Pipeline](images/JenkinsPipeline.png)
+
+As shown above, there are 5 main stages in the pipeline:
+1) Testing: All tests are carried out and reports are produced for Jenkins to view
+2) Push image: Docker credentials are uploaded from Jenkins, which are then used to push the images of the services once they are built
+3) Configure Swarm and Ansible: The Ansible playbook is run, which starts NGINX, initiailizes Docker Swarm and adds the managers and worker nodes.
+4) Deploy application: The stack is deployed with the Docker-Compose file, and the environmental variables are also set
+5) Post Actions: The test reports are posted to view the tests that have passed and test coverage.
+
