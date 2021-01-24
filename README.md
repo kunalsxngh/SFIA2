@@ -104,3 +104,58 @@ For service 1 to display a new numberplate, it needs service 2 to randomly gener
 ![Services](images/services.png)
 
 # Test Results
+
+PyTest was used to test this project, with the help of the Unittest Mocking as there are many random modules used to generate objects. Mocking helps test random modules as it forces the output of the random statement to be set before the test is run, allowing for the testing of the rest of the code. These tests were then automated by Jenkins, running everytime the program is deployed. The results can then be viewed on the build page, as shown below:
+
+![Test coverage](images/testcoverage.png)
+
+The report first graphs how many tests failed, were skipped or passed, followed by code coverage. Thanks to Mocking, a code coverage of 100% was achieved, which meant that each line of code in the services was run atleast once during testing. This ensures the validity of the tests. 
+
+## Refactoring
+
+Initially, the Jenkins script file for testing was written as so:
+
+    #Testing service 1
+    cd service_1
+    python3 -m venv venv
+    source venv/bin/activate
+    pip3 install -r requirements.txt
+    pip3 install pytest pytest-cov flask_testing
+    python3 -m pytest --cov=application --cov-report xml --cov-report term-missin --junitxml junit.xml
+    deactivate
+    cd ..
+Where this block of code was repeated 4 times, for each service. To make the code more efficient, a for loop was used, the requirements were only installed once, and the tests were all run in one virtual environment.
+
+    python3 -m venv venv
+    source venv/bin/activate
+    pip3 install pytest pytest-cov flask_testing requests_mock flask_sqlalchemy
+    pip3 install -r service_1/requirements.txt
+
+    for i in 1 2 3 4
+    do
+        cd service_$i
+        python3 -m pytest --cov=application --cov-report xml --cov-report term-missing --junitxml junit.xml
+        cd ..
+    done
+    deactivate
+
+# Front-End Design
+
+An example of what the user would see when they first enter the website is shwon below. A new numberplate is generated followed by a car colour, and the previous 5 numberplates are also shown.
+
+![frontend](images/frontend.png)
+
+
+# Future improvements
+
+- Improved CSS Design
+- More Car colours
+- Users able to log in and post pictures of their cars, with their numberplates
+
+# Author
+
+Kunal Singh
+
+## Contributors
+
+Harry Volker
