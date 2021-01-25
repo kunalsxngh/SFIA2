@@ -34,7 +34,7 @@ This section will explore the varies methods used to plan the development of thi
 
 ## Planning
 
-Before any development could commence, a Kanban board was created on Trello. The board holds information on what's currently in development, who is working on it and where something is in the process. It also stores project resources, User stories and Minimum viable product (MVP) requirements.
+Before attempting any development, a Kanban board was created on Trello. The board holds information on what's currently in development, who is working on it and where something is in the process. It also stores project resources, User stories and Minimum viable product (MVP) requirements.
 
 ![TrelloBoard](images/TrelloBoard.png)
 
