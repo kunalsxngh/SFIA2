@@ -5,5 +5,5 @@ import random
 
 @app.route("/", methods=["GET"])
 def get_numbers():
-    year = random.randint(1990, 2021)
+    year = random.randint(2005, 2030)
     return Response(str(year)[-2:], mimetype='text/plain')

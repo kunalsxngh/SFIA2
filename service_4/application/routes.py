@@ -11,7 +11,7 @@ def get_numberplate():
     years = int(data["numbers"])
     color = "yellow"
     if (years % 3 == 0):
-        color = "red"
+        color = "blue"
     if ('G' in letters):
         years += randrange(10)
 

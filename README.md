@@ -3,6 +3,7 @@ As part of my training to become a DevOps engineer at QA, I was asked to create 
 
 These four services all rely on each other to function. Service one handles the front-end of the program while communicating with all the other services to produce an output to the user, while storing them in an SQL database. Service 2 and 3 produce the randomly generated objects that are then used to create the final output for the user in service 4.
 
+<<<<<<< HEAD
 The complexity of the program itself is rather simple, since an emphasis was placed instead on ensuring the correct technologies were implemented and functioning properly. These technologies include but are not limited to: 
  - Containerisation of modules via **Docker**, orchestrated by **Docker Swarm**
  - Server provision and task automation via **Ansible**
@@ -171,3 +172,6 @@ Kunal Singh
 ## Contributors
 
 Harry Volker
+=======
+Hello
+>>>>>>> dev
