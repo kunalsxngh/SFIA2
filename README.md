@@ -14,7 +14,19 @@ To explain in brief terms, this project will create a web application that gener
 
 # Contents
 
-To be added at the end
+* [Software Design](#Software-Design)
+    * [Planning](#Planning)
+    * [Database](#Database)
+    * [Risk Assessment](#Risk-Assessment)
+    * [Test plans](#Test-plans)
+* [Conintunous Deployment and Integration](#Conintunous-Deployment-and-Integration)  
+* [Architectures](#Architectures)
+* [Service configuration](#Service-configuration)
+* [Test Results](#Test-Results)
+* [Front-End Design](#Front-End-Design)
+* [Future Improvements](#Future-improvements)
+* [Author](#Author)
+* [Contributors](#Contributors)
 
 # Software Design
 
@@ -22,7 +34,7 @@ This section will explore the varies methods used to plan the development of thi
 
 ## Planning
 
-Before any development commenced, a Kanban board was created on Trello. The board holds information on what's currently in development, who is working on it and where something is in the process. It also stores project resources, User stories and Minimum viable product (MVP) requirements.
+Before any development could commence, a Kanban board was created on Trello. The board holds information on what's currently in development, who is working on it and where something is in the process. It also stores project resources, User stories and Minimum viable product (MVP) requirements.
 
 ![TrelloBoard](images/TrelloBoard.png)
 
